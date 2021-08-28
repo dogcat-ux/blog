@@ -55,7 +55,7 @@
       bottom: 0;
       margin: auto 0;
       overflow: hidden;
-      color: white;
+      color: var(--color-font2);
       z-index: 200;
       font-size: var(--font-header);
       .el-col {

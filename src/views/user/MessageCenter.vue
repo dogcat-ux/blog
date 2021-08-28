@@ -72,8 +72,6 @@
       background-color: var(--color-main);
       ul{
         width: 100%;
-        padding-top: 20px;
-        margin-top: 56px;
         li{
           width: 100%;
           height: 50px;
@@ -91,21 +89,23 @@
       min-height: 100vh;
       height: auto;
       width: 100%;
+      background-color: var(--color-main);
     }
     .el-main{
       overflow: hidden;
-      padding: var(--header-height) 0 0 0;
-      margin-left: 200px;
+      margin: var(--header-height) 0 0 200px;
       min-height: 100vh;
       height: auto;
-      /*background-color: slateblue;*/
+      background-color: var(--color-bac);
       text-align: center;
+      border-top-left-radius: 50px;
       /*height: 100vh;*/
       .center-one-message{
         /*margin: 25px auto;*/
         margin: 0 auto;
       }
       .message-center-main{
+        height: 100%;
       }
     }
   }

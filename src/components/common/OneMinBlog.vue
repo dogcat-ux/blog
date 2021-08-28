@@ -81,7 +81,7 @@
   .one-blog {
     width: $one-blog-width;
     height: $one-blog-height;
-    background: var(--color-main);
+    background: rgba(255, 255, 255, 0.5);
     margin: 0 auto;
 
     .one-blog-header {

@@ -6,7 +6,9 @@
         <span slot="date">{{item.creatTime}}</span>
         <div slot="comment-content">{{item.content}}</div>
         <div slot="blog-content" class="blog-content">
-          {{item.username}}:{{blogContent[index]}}
+          <el-card shadow="never">
+            {{item.username}}:{{blogContent[index]}}
+          </el-card>
         </div>
       </OneMessage>
     </div>
@@ -75,8 +77,10 @@
     margin-top: 10px;
     height: 151px;
     padding: 10px;
-    background-color: var(--color-bac2);
+    /*background-color: rgba(255, 255, 255, 0.47);*/
     color: var(--color-font2);
     border-radius: 20px 0 10px 0;
+  }
+  .el-card{
   }
 </style>

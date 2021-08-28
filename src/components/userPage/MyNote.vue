@@ -5,7 +5,7 @@
         <span slot="username">{{item.username}}</span>
         <span slot="date">{{item.creatTime}}</span>
         <div slot="=title">{{item.title}}</div>
-        <div slot="content">{{item.content}}</div>
+        <div slot="content" v-html="item.content">{{item.content}}</div>
 <!--        <span slot="likes">{{item.likes}}</span>-->
         <span slot="views">{{item.view}}</span>
       </OneBlog>
@@ -58,9 +58,10 @@
 
 <style lang="scss" scoped>
   .my-note{
-    min-height: 100vh;
-    height: auto;
-    margin: 20px auto;
+    background-color: var(--color-main);
+    background-image: var(--color-img);
+    margin: 0 auto;
+    padding-top: 20px;
     .one-note{
       margin: 20px auto;
     }

@@ -62,6 +62,7 @@
       img{
         width: 30px;
         height: 30px;
+        border-radius: 10px;
       }
     }
     .show2-img {
@@ -89,6 +90,7 @@
           height: 100%;
           margin-top: 32px;
           object-fit: cover;
+          border-radius: 5px;
         }
       }
     }

@@ -40,7 +40,7 @@
   .one-message {
     width: $one-blog-width;
     height: $one-blog-height;
-    background: var(--color-bac);
+    background: var(--color-bac3);
     margin: 25px auto;
     border-radius: 10px;
 

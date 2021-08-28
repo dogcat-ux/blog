@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderBar></HeaderBar>
+    <HeaderBar class="header-collect"></HeaderBar>
     <MyCollect></MyCollect>
   </div>
 </template>
@@ -17,6 +17,9 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .header-collect{
+    position: fixed;
+    z-index: 100;
+  }
 </style>

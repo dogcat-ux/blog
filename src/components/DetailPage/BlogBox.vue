@@ -116,7 +116,8 @@
         flex: 1;
         text-align: left;
         display: flex;
-        height: $one-blog-header-height;
+        height: auto;
+        min-height: $one-blog-header-height;
         flex-direction: column;
         justify-content: center;
         span:first-child{

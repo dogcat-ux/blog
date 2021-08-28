@@ -46,12 +46,13 @@
 /*#DBDDED*/
 /*#E9EDF4*!*/
   /*  颜色*/
-  --color-main: #CECDE5;
-  --color-bac: #ffffff;
-  --color-bac3: #272643;
+  --color-img: linear-gradient(to right, #b5dbde, #f4f7f7);;
+  --color-main: #aacfd0;
+  --color-bac: #f4f7f7;
+  --color-bac3: #ffffff;
   --color-bac4: #ffffff;
   /*--color-bac2: rgba(147, 227, 223, 0.68);*/
-  --color-bac2: #429A87;
+  --color-bac2: rgba(255, 255, 255, 0.66);
   /*icon*/
   --color-icon: skyblue;
   /*--color-common-icon: #8a8a8a;*/
@@ -61,7 +62,7 @@
   /*  字体颜色*/
   --color-font: #ABD1FE;
   --color-font-active: #659bdb;
-  --color-font2: #7b7b7b;
+  --color-font2: #353866;
   --color-font-main: #565656;
   --color-title: #2a2929;
   /*文字链接*/

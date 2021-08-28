@@ -1,27 +1,27 @@
 <template>
   <div class="one-blog">
-    <div class="one-blog-header">
-      <div class="img-box" @click="toOtherUser">
-        <el-avatar :size="65" class="avatar" :src="avatarUrl"></el-avatar>
+      <div class="one-blog-header">
+        <div class="img-box" @click="toOtherUser">
+          <el-avatar :size="65" class="avatar" :src="avatarUrl"></el-avatar>
+        </div>
+        <div class="text-box">
+          <slot name="username"></slot>
+          <slot name="date"></slot>
+        </div>
       </div>
-      <div class="text-box">
-        <slot name="username"></slot>
-        <slot name="date"></slot>
+      <div class="one-blog-main" @click="toDetail">
+        <slot name="title"></slot>
+        <slot name="content"></slot>
+      </div>
+      <div class="common-footer">
+        <CommonFooter :blogId="blogId" :likes="likes">
+          <slot name="views" slot="views"></slot>
+          <!--        <slot name="likes" slot="likes"></slot>-->
+          <slot name="collects" slot="collects"></slot>
+          <slot name="comments" slot="comments"></slot>
+        </CommonFooter>
       </div>
     </div>
-    <div class="one-blog-main" @click="toDetail">
-      <slot name="title"></slot>
-      <slot name="content"></slot>
-    </div>
-    <div class="common-footer">
-      <CommonFooter :blogId="blogId" :likes="likes">
-        <slot name="views" slot="views"></slot>
-<!--        <slot name="likes" slot="likes"></slot>-->
-        <slot name="collects" slot="collects"></slot>
-        <slot name="comments" slot="comments"></slot>
-      </CommonFooter>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -76,8 +76,13 @@
   .one-blog {
     width: $one-blog-width;
     height: $one-blog-height;
-    background: var(--color-main);
+    background: rgba(255, 255, 255, 0.5);
     margin: 0 auto;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    overflow: hidden;
+    color: #303133;
+    transition: .3s;
 
     .one-blog-header {
       display: flex;
@@ -138,5 +143,8 @@
       width: 100%;
       text-align: center;
     }
+  }
+  .one-blog:hover{
+
   }
 </style>

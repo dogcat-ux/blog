@@ -129,6 +129,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 5px;
           }
 
           .my-attention-text {
@@ -216,6 +217,7 @@
         /deep/ img {
           width: 100%;
           height: 100%;
+          border-radius: 5px;
           object-fit: cover;
         }
       }
