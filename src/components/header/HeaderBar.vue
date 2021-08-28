@@ -3,7 +3,8 @@
     <el-row :gutter="20" class="header-bar" style="margin-left:  0; margin-right: 0;">
       <el-col :span="4" :offset="1">
         <span @click="goHome">首页</span>
-        <span @click="goPublish"><el-button class="publish-note" type="primary" round>发表博客</el-button></span>
+<!--        <span @click="goPublish"><el-button class="publish-note" type="primary" round>发表博客</el-button></span>-->
+        <span @click="goPublish" class="publish-note">发表博客</span>
       </el-col>
       <el-col :span="6" :offset="5">
         <SearchBox class="SearchBox" @toSearch="goSearchPage"></SearchBox>
@@ -74,6 +75,10 @@
       .publish-note{
         font-family: DingYongKang;
         margin-left: 10px;
+        cursor: pointer;
+      }
+      .publish-note:hover{
+        color: var(--color-font-active);
       }
     }
   }

@@ -12,8 +12,8 @@
       <el-main>
         <div class="main-content" >
           <ul>
-            <i class="el-icon-s-fold" v-if="isFold===0" @click="isFold=1"></i>
-            <i class="el-icon-s-unfold" v-else-if="isFold===1" @click="isFold=0"></i>
+            <i class="el-icon-s-fold icon-size" v-if="isFold===0" @click="isFold=1"></i>
+            <i class="el-icon-s-unfold icon-size" v-else-if="isFold===1" @click="isFold=0"></i>
             <li @click="MyNote" ref="MyNote">我发布的笔记</li>
             <li @click="MyCollect" ref="MyCollect">我的收藏</li>
             <li @click="MyDraft" ref="MyDraft">我的草稿</li>
@@ -132,14 +132,14 @@
           .el-icon-s-fold{
             cursor: pointer;
             margin: auto;
-            font-size: 40px;
-            color: var(--color-icon);
+            /*font-size: 40px;*/
+            color: var(--color-common-icon);
           }
           .el-icon-s-unfold{
             cursor: pointer;
             margin: auto;
-            font-size: 40px;
-            color: var(--color-icon);
+            /*font-size: 40px;*/
+            color: var(--color-common-icon);
           }
           li{
             cursor: pointer;

@@ -13,7 +13,7 @@
 <!--                </div>-->
                 <span class="title">{{item.title}}</span>
               </div>
-              <p class="goodsInfo">{{item.content}}</p>
+              <p class="goodsInfo" v-html="item.content">{{item.content}}</p>
             </div>
           </el-col>
         </el-row>

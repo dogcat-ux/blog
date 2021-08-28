@@ -18,7 +18,8 @@
           </el-menu-item>
           <el-menu-item index="3" @click="toLove">
             <i class="el-icon-headset"></i>
-            <span slot="title">关注ta</span>
+            <span slot="title" v-if="!isLove">关注ta</span>
+            <span slot="title" v-else>取消关注</span>
           </el-menu-item>
   </el-menu>
     </div>
@@ -36,6 +37,8 @@
   import HeaderBar from "../../components/header/HeaderBar";
   import InfoOthers from "../../components/infoForOthers/InfoOthers";
   import {getUserMess} from "../../api/user/UserController/getUserMess";
+  import {getUserFocus} from "../../api/user/FocusController/getUserFocus";
+  import {deleteUserFocus} from "../../api/user/FocusController/deleteUserFocus";
 
   export default {
     name: "InfoForOthers",
@@ -50,7 +53,8 @@
         tabPosition: 'left',
         componentId: 0,
         portraitPath:'',
-        user:[]
+        user:[],
+        isLove:false
       };
     },
     methods:{
@@ -60,8 +64,20 @@
       toUserNote(){
         this.componentId = 1
       },
+      focus(){
+        getUserFocus(this.$route.query.username)
+      },
+      cancelFocus(){
+        deleteUserFocus(this.$route.query.username)
+      },
       toLove(){
-
+        if (this.isLove){
+          this.cancelFocus()
+          this.isLove=!this.isLove
+        }else{
+          this.focus()
+          this.isLove=!this.isLove
+        }
       }
     },
     created() {
