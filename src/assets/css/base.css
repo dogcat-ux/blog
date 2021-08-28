@@ -1,0 +1,149 @@
+@import "./normalize.css";
+
+:root {
+  /*通用页面尺寸*/
+  --header-height: 52px;
+  /*--header-height: 4.82vh;*/
+  --header-width: 100vw;
+  --page-width: 100vw;
+  --page-height: 100%;
+  --page-height-common: 100vh;
+  /*登录页面尺寸*/
+  --login-width: 36.4584vw;
+  /*登录框的高度*/
+  --login-input-height: 80px;
+  /*头像尺寸*/
+  /*个人页面的头像尺寸*/
+  /*主宽度*/
+  /*--width-main:1200px;*/
+  --width-main: 1200px;
+  /*!*首页标签栏*/
+  /*--width-tab:1320px;*/
+  --width-tab: 68.75vw;
+  /*首页热门内容*/
+  --width-index: 1260px;
+  /*--width-index: 65.625vw;*/
+  /*--font-title: 16px;*/
+  --font-title: 16px;
+  --font-title-min: 16px;
+  --font-header: 16px;
+  --font-login: 20px;
+  --font-20: 20px;
+  --font-18: 18px;
+
+  /*background-color: #FD9A16;*/
+  /*background-color: #2966C1;*/
+
+/*  !*#2A5B68*!#644A53*/
+/*#7C5D6E*/
+/*#94708C*/
+/*#AC83AC*/
+/*#BB97C4*/
+/*#BDA4CD*/
+/*#C1B2D5*/
+/*#C6BFDD*/
+/*#CECDE5*/
+/*#DBDDED*/
+/*#E9EDF4*!*/
+  /*  颜色*/
+  --color-main: #CECDE5;
+  --color-bac: #ffffff;
+  --color-bac3: #272643;
+  --color-bac4: #ffffff;
+  /*--color-bac2: rgba(147, 227, 223, 0.68);*/
+  --color-bac2: #429A87;
+  /*icon*/
+  --color-icon: skyblue;
+  /*--color-common-icon: #8a8a8a;*/
+  --color-common-icon: #bfbdbd;
+  --color-common-icon-active: skyblue;
+  --font-icon:25px;
+  /*  字体颜色*/
+  --color-font: #ABD1FE;
+  --color-font-active: #659bdb;
+  --color-font2: #7b7b7b;
+  --color-font-main: #565656;
+  --color-title: #2a2929;
+  /*文字链接*/
+  --color-font-link: #545454;
+  --color-font-link-active: #abd1fe;
+/*  */
+  --view-width: 1000px;
+  --frame-item: 280px;
+  --color-hook: rgb(226, 226, 226);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+  -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
+  width: 100vw;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+  width: 100vw;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.clear-fix::after {
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clear-fix {
+  zoom: 1;
+}
+
+.arrow-right {
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  width: 9px;
+  height: 9px;
+  background-color: transparent;
+  transform: rotate(135deg);
+  display: inline-block;
+  margin-left: .1rem;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+li {
+  list-style: none;
+}
+
+.fade-enter-active,.fade-leave-active{
+  transition:opacity,.3s;
+  opacity:0
+}
+.fade-enter,.fade-leave-to{
+  opacity:0
+}
+
+.icon-size{
+  width: 25px;
+  height: 25px;
+}
