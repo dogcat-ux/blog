@@ -5,7 +5,7 @@
       <div class="portrait">
         <el-avatar :src="this.portraitPath" :size="100"></el-avatar>
       </div>
-        <el-menu
+      <el-menu
           default-active="1"
           class="el-menu-vertical-demo">
           <el-menu-item index="1" @click="toUserInfo">
@@ -16,11 +16,11 @@
             <i class="el-icon-sell"></i>
             <span slot="title">ta发布的笔记</span>
           </el-menu-item>
-<!--          <el-menu-item index="3" @click="toUserSelling">-->
-<!--            <i class="el-icon-goods"></i>-->
-<!--            <span slot="title">ta的在售商品</span>-->
-<!--          </el-menu-item>-->
-        </el-menu>
+          <el-menu-item index="3" @click="toLove">
+            <i class="el-icon-headset"></i>
+            <span slot="title">关注ta</span>
+          </el-menu-item>
+  </el-menu>
     </div>
     <div slot="main">
       <info-others :user="user" v-if="componentId===0" class="info-main"></info-others>
@@ -60,8 +60,8 @@
       toUserNote(){
         this.componentId = 1
       },
-      toUserSelling(){
-        this.componentId = 2
+      toLove(){
+
       }
     },
     created() {

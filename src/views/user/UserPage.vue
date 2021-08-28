@@ -1,33 +1,4 @@
 <template>
-<!--  <el-container>-->
-<!--    <el-header><HeaderBar class="header-bar2"></HeaderBar></el-header>-->
-<!--    <el-container>-->
-<!--      <el-aside width="200px">-->
-<!--        <transition name="el-fade-in-linear">-->
-<!--          <div class="info" v-if="isFold===0">-->
-<!--            <UserInfo class="user-info"></UserInfo>-->
-<!--          </div>-->
-<!--        </transition>-->
-<!--      </el-aside>-->
-<!--      <el-main>-->
-<!--        <ul>-->
-<!--        <i class="el-icon-s-fold" v-if="isFold===0" @click="isFold=1"></i>-->
-<!--        <i class="el-icon-s-unfold" v-else-if="isFold===1" @click="isFold=0"></i>-->
-<!--        <li @click="MyNote" ref="MyNote">我发布的笔记</li>-->
-<!--        <li @click="MyCollect" ref="MyCollect">我的收藏</li>-->
-<!--        <li @click="MyDraft" ref="MyDraft">我的草稿</li>-->
-<!--        <li @click="MyLikes" ref="MyLikes">我赞过的</li>-->
-<!--        &lt;!&ndash;          <li @click="MyAttention" ref="MyAttention">关注</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li @click="MyFans" ref="MyFans">粉丝</li>&ndash;&gt;-->
-<!--      </ul>-->
-<!--        <div class="main-box">-->
-<!--          <transition name="fade">-->
-<!--            <component :is="mainContent"></component>-->
-<!--          </transition>-->
-<!--        </div>-->
-<!--      </el-main>-->
-<!--    </el-container>-->
-<!--  </el-container>-->
   <div class="user-page">
     <!--    左边-->
     <HeaderBar class="header-bar2"></HeaderBar>

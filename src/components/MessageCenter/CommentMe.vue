@@ -1,6 +1,5 @@
 <template>
   <div class="comment-me">
-    <!--    TODO 评论者头像-->
     <div v-for="(item,index) in messagesAdd">
       <OneMessage :avatarUrl="item.userPicture">
         <span slot="username">{{item.valuerName}}</span>
