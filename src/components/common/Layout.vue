@@ -26,14 +26,13 @@
   .max{
     width: 100vw;
     height: 100vh;
-    background-color: pink;
   }
   .page{
     width: 100vw;
     /*height: 100vh;*/
     height: auto;
     /*background-color: var(--bgc);*/
-    background-color: moccasin;
+    background-color: var(--color-bac);
     .header{
       width: 100vw;
       height: 60px;

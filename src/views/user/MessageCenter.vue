@@ -11,7 +11,7 @@
           <ul>
             <li @click="replyMe">回复我的</li>
             <li>私聊</li>
-            <li>收到的赞/收藏</li>
+            <li @click="likeMe">收到的赞/收藏</li>
             <li>新增关注</li>
           </ul>
         </el-scrollbar>
@@ -31,12 +31,14 @@
   import HeaderBar from "../../components/header/HeaderBar";
   import OneMessage from "../../components/MessageCenter/OneMessage";
   import CommentMe from "../../components/MessageCenter/CommentMe";
+  import LikeMe from "../../components/MessageCenter/LikeMe";
   export default {
     name: "MessageCenter",
     components:{
       HeaderBar,
       OneMessage,
-      CommentMe
+      CommentMe,
+      LikeMe
     },
     data(){
       return{
@@ -46,6 +48,9 @@
     methods:{
       replyMe(){
         this.mainContent="CommentMe"
+      },
+      likeMe(){
+        this.mainContent="LikeMe"
       }
     }
   }

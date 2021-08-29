@@ -1,9 +1,9 @@
 <template>
   <div class="one-blog">
     <div class="one-blog-header">
-<!--      <div class="img-box" @click="toOtherUser">-->
-<!--        <el-avatar :size="65" class="avatar" :src="avatarUrl"></el-avatar>-->
-<!--      </div>-->
+      <div class="img-box" @click="toOtherUser">
+        <el-avatar :size="65" class="avatar" :src="avatarUrl"></el-avatar>
+      </div>
       <div class="text-box">
         <slot name="username"></slot>
         <slot name="date"></slot>
@@ -81,7 +81,7 @@
   .one-blog {
     width: $one-blog-width;
     height: $one-blog-height;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--color-bac);
     margin: 0 auto;
 
     .one-blog-header {

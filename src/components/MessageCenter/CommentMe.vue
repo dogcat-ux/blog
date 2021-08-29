@@ -1,13 +1,13 @@
 <template>
   <div class="comment-me">
-    <div v-for="(item,index) in messagesAdd">
+    <div v-for="(item,index) in messages">
       <OneMessage :avatarUrl="item.userPicture">
         <span slot="username">{{item.valuerName}}</span>
         <span slot="date">{{item.creatTime}}</span>
         <div slot="comment-content">{{item.content}}</div>
-        <div slot="blog-content" class="blog-content">
+        <div slot="blog-content" class="blog-content" @click="toBlog(item.blogId)">
           <el-card shadow="never">
-            {{item.username}}:{{blogContent[index]}}
+            {{item.username}}: <span class="tittle">{{item.blogTitle}}</span>
           </el-card>
         </div>
       </OneMessage>
@@ -23,6 +23,7 @@
   import {getComment} from "../../api/user/UserController/getComment";
   import OneMessage from "./OneMessage";
   import {getBlogDetail} from "../../api/user/BlogController/getBlogDetail";
+  import {clearComment} from "../../api/user/UserController/clearComment";
 
   export default {
     name: "CommentMe",
@@ -43,16 +44,6 @@
         if (res.status === 200) {
           if (res.data.code === 200) {
             this.messages = res.data.data
-            this.messagesAdd = res.data.data.map((value, index, arr) => {
-              getBlogDetail(value.blogId).then(res1 => {
-                console.log("getBlogDetail", res1)
-                this.blogContent.append(res1.data.data.content)
-                value["blogContent"] = res1.data.data.content
-              }).catch(err => {
-                console.log(err)
-              });
-              return value
-            })
           } else {
             this.$message.error("失败")
           }
@@ -62,6 +53,23 @@
       }).catch(err => {
         console.log(err)
       });
+      clearComment(this.$store.state.username).then(res=>{
+        console.log(res)
+        if(res.data.code===200){}else {
+        }
+      }).catch(err=>{
+        console.log(err)
+      });
+    },
+    methods:{
+      toBlog(blog_id){
+        this.$router.push({
+          path:"/user/DetailPage",
+          query:{
+            blog_id:blog_id
+          }
+        })
+      }
     }
   }
 </script>
@@ -82,5 +90,12 @@
     border-radius: 20px 0 10px 0;
   }
   .el-card{
+    color: #8c939d;
+    cursor: pointer;
+    .tittle{
+      margin-left: 5px;
+      color: #868686;
+      font-weight: bold;
+    }
   }
 </style>

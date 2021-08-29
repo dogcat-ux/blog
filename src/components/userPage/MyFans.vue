@@ -13,6 +13,7 @@
 </template>
 
 <script>
+  import {getFansList} from "../../api/user/FocusController/getFansList";
   import SearchBox from "../header/SearchBox";
   export default {
     name: "MyFans",
@@ -34,6 +35,17 @@
           //   }})
         }
       }
+    },
+    created() {
+      getFansList().then(res=>{
+        console.log(res)
+        if(res.data.code===200){
+          this.fans=res.data.data
+        }else {
+        }
+      }).catch(err=>{
+        console.log(err)
+      });
     }
   }
 </script>

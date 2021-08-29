@@ -88,7 +88,7 @@
     text-align: center;
     line-height: var(--page-height);
     position: relative;
-    background-color: var(--color-bac);
+    background-color: var(--color-main);
     display: flex;
     flex-direction: column;
     .header{
@@ -112,7 +112,8 @@
         .img-box {
           width: $login-height;
           height: $login-height;
-          background-color: var(--color-bac);
+          background-color: var(--color-main);
+          /*background-color: var(--color-bac);*/
 
           img {
             width: $login-height;
@@ -122,7 +123,7 @@
 
         .login-box {
           /*background-color: seashell;*/
-          background-color: var(--color-main);
+          background-color: var(--color-bac);
           flex: 1;
           display: flex;
           flex-direction: column;

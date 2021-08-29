@@ -6,7 +6,6 @@
         <span slot="date">{{item.creatTime}}</span>
         <h3 slot="=title">{{item.title}}</h3>
         <div slot="content" v-html="item.content">{{item.content}}</div>
-<!--        <span slot="likes">{{item.likes}}</span>-->
         <span slot="views">{{item.view}}</span>
       </OneMinBlog>
     </div>
