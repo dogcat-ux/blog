@@ -25,6 +25,9 @@
       handleKeyUp(){
         this.$emit('toSearch',this.searchContent)
       }
+    },
+    created() {
+      this.$emit('inputSearch',this.searchContent)
     }
   }
 </script>

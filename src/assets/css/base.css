@@ -148,3 +148,6 @@ li {
   width: 25px;
   height: 25px;
 }
+.el-avatar{
+  cursor: pointer;
+}

@@ -18,13 +18,13 @@
             <li @click="MyCollect" ref="MyCollect">我的收藏</li>
             <li @click="MyDraft" ref="MyDraft">我的草稿</li>
             <li @click="MyLikes" ref="MyLikes">我赞过的</li>
-            <!--          <li @click="MyAttention" ref="MyAttention">关注</li>-->
-            <!--          <li @click="MyFans" ref="MyFans">粉丝</li>-->
+            <li @click="MyAttention" ref="MyAttention">关注</li>
+            <li @click="MyFans" ref="MyFans">粉丝</li>
           </ul>
           <div class="main-box">
-            <transition name="fade">
+<!--            <transition name="fade">-->
               <component :is="mainContent"></component>
-            </transition>
+<!--            </transition>-->
           </div>
         </div>
       </el-main>

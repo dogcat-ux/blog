@@ -67,6 +67,11 @@
 <script>
   export default {
     name: "Empty",
+    data(){
+      return{
+        text:"暂无数据"
+      }
+    },
     props:{
       text:String
     }
@@ -77,6 +82,7 @@
   .empty{
     width: 100%;
     height: 100%;
+    color: var(--color-font-main);
     .el-empty {
       display: flex;
       justify-content: center;

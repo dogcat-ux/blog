@@ -39,6 +39,7 @@
   import {getUserMess} from "../../api/user/UserController/getUserMess";
   import {getUserFocus} from "../../api/user/FocusController/getUserFocus";
   import {deleteUserFocus} from "../../api/user/FocusController/deleteUserFocus";
+  import {getIsFocus} from "../../api/user/FocusController/getIsFocus";
 
   export default {
     name: "InfoForOthers",
@@ -89,6 +90,14 @@
         }else{
         }
       }).catch(err=>{})
+      getIsFocus(this.$route.query.username).then(res => {
+        if (res.data.code === 200) {
+          this.isLove=res.data.data
+        } else {
+        }
+      }).catch(err => {
+        console.log(err)
+      });
     }
   }
 </script>
