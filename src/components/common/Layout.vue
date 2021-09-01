@@ -25,11 +25,13 @@
 <style lang="scss" scoped>
   .max{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
   }
   .page{
     width: 100vw;
     /*height: 100vh;*/
+    min-height: 80vh;
     height: auto;
     /*background-color: var(--bgc);*/
     background-color: var(--color-bac);

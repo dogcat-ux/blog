@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="my-collect-page">
     <HeaderBar class="header-collect"></HeaderBar>
-    <MyCollect></MyCollect>
+    <div class="my-collect-box">
+      <MyCollect></MyCollect>
+    </div>
   </div>
 </template>
 
@@ -21,5 +23,10 @@
   .header-collect{
     position: fixed;
     z-index: 100;
+  }
+  .my-collect-page{
+   .my-collect-box{
+     padding-top: var(--header-height);
+   }
   }
 </style>

@@ -24,6 +24,10 @@
     <div class="username">
       <span>{{userInfo.username}}</span>
     </div>
+    <div class="info-popularity">
+      <div>粉丝数:{{fansNum}}</div>
+      <div>关注数:{{attentionNum}}</div>
+    </div>
     <div class="sex" >
       <span v-if="userInfo.sex===0&&!isBoxEdit">男</span>
       <span v-else-if="userInfo.sex===1&&!isBoxEdit">女</span>
@@ -57,8 +61,6 @@
       >
       </el-input>
     </div>
-    <ul class="info-popularity">
-    </ul>
     <div class="amend-info">
       <span v-if="isBoxEdit===false">
         <el-button type="primary" size="small" class="buttons"  @click="isBoxEdit=true">修改资料</el-button>
@@ -77,6 +79,8 @@
   import {getUserMess} from "../../api/user/UserController/getUserMess";
   import {changeUserMess} from "../../api/user/UserController/changeUserMess";
   import {uploadAvator} from "../../api/user/OssController/uploadAvator";
+  import {getFocusList} from "../../api/user/FocusController/getFocusList";
+  import {getFansList} from "../../api/user/FocusController/getFansList";
 
   export default {
     name: "UserInfo",
@@ -90,6 +94,8 @@
         defaultAvatar:this.$global.defaultAvatar,
         avatarUrl:this.$store.state.portraitPath,
         userInfo:{},
+        attentionNum:0,
+        fansNum:0,
         infoAmended:{
           sex:0
         },
@@ -115,6 +121,7 @@
         uploadAvator(this.fileData.file).then(res=>{
           console.log("uploadAvator",res)
           if(res.data.code===200){
+            this.$message.success("修改成功")
             console.log("头像地址",res.data.data)
             this.infoAmended.pictureUrl=res.data.data;
             this.userInfo.pictureUrl=res.data.data;
@@ -183,6 +190,23 @@
           this.infoAmended=res.data.data;
         }
       }).catch(err=>{})
+      getFocusList(this.$store.state.username).then(res => {
+        console.log("getFocusList", res)
+        if (res.data.code === 200) {
+          this.attentionNum = res.data.data.length
+        }
+      }).catch(err => {
+        console.log(err)
+      });
+      getFansList(this.$store.state.username).then(res => {
+        console.log("getFansList", res)
+        if (res.data.code === 200) {
+          this.fansNum = res.data.data.length
+        } else {
+        }
+      }).catch(err => {
+        console.log(err)
+      });
     }
   }
 </script>
@@ -281,9 +305,16 @@
     }
     .info-popularity{
       width: 100%;
-      height: 20px;
       line-height: 60px;
       text-align: center;
+      display: flex;
+      height: 60px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      div{
+        margin-left: 5px;
+      }
     }
     .amend-info{
       flex: 1;

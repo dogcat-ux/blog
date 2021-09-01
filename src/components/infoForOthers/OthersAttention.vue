@@ -12,8 +12,8 @@
     <div class="oneFans" v-for="(item,index) in fans1">
       <el-avatar :size="60" :src="item.pictureUrl" @click="toOtherUser(item.username)"></el-avatar>
       <span class="username">{{item.username}}</span>
-      <el-button type="primary" @click="toLove(item.username)" v-if="item.mutualInterest===1">取消关注</el-button>
-      <el-button type="primary" @click="toLove(item.username)" v-else>关注</el-button>
+<!--      <el-button type="primary" @click="toLove(item.username)" v-if="isLove">取消关注</el-button>-->
+<!--      <el-button type="primary" @click="toLove(item.username)" v-else>关注</el-button>-->
     </div>
   </div>
 </template>
@@ -22,12 +22,9 @@
   import {getFocusList} from "../../api/user/FocusController/getFocusList";
   import SearchBox from "../header/SearchBox";
   import {getUserFocus} from "../../api/user/FocusController/getUserFocus";
-  import {deleteUserFocus} from "../../api/user/FocusController/deleteUserFocus";
-  import {getIsFocus} from "../../api/user/FocusController/getIsFocus";
-  import {getFansList} from "../../api/user/FocusController/getFansList";
 
   export default {
-    name: "MyFans",
+    name: "OthersAttention",
     components: {
       SearchBox
     },
@@ -39,7 +36,6 @@
         isLove: true,
       }
     },
-
     computed: {
       changeValue: function (e) {
         // let value = this.input
@@ -84,6 +80,11 @@
           console.log("getUserFocus", res)
           if (res.data.code === 200) {
             this.$message.success("取消关注成功")
+            this.fans1.filter(value=>{
+              if(value.username!==username){
+                return value
+              }
+            })
           } else {
           }
         }).catch(err => {
@@ -92,12 +93,13 @@
       },
     },
     created() {
-      getFansList(this.$store.state.username).then(res => {
-        console.log("getFansList", res)
+      getFocusList(this.$route.query.username).then(res => {
+        console.log("getFocusList", res)
         if (res.data.code === 200) {
           this.fans = res.data.data
           this.fans1 = res.data.data
         } else {
+
         }
       }).catch(err => {
         console.log(err)

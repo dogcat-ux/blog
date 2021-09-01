@@ -1,7 +1,9 @@
 <template>
   <div class="my-note-page">
     <HeaderBar class="header-collect"></HeaderBar>
-    <MyNote></MyNote>
+    <div class="my-note-box">
+      <MyNote></MyNote>
+    </div>
   </div>
 </template>
 
@@ -21,11 +23,12 @@
   .my-note-page{
     height: auto;
     min-height: 100vh;
-    /*padding-bottom: 20px;*/
-    /*position: relative;*/
   }
   .header-collect{
     position: fixed;
     z-index: 100;
+  }
+  .my-note-box{
+    padding-top: var(--header-height);
   }
 </style>

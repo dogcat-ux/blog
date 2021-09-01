@@ -11,6 +11,7 @@
         <span slot="views">{{item.view}}</span>
       </OneBlog>
     </div>
+    <Empty :text="'暂无数据'" v-if="blog.length===0"></Empty>
   </div>
 </template>
 

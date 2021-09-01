@@ -39,7 +39,6 @@
         isLove: true,
       }
     },
-
     computed: {
       changeValue: function (e) {
         // let value = this.input
@@ -72,6 +71,7 @@
         getUserFocus(username).then(res => {
           console.log("getUserFocus", res)
           if (res.data.code === 200) {
+            this.$message.success("关注成功")
           } else {
           }
         }).catch(err => {
@@ -82,6 +82,12 @@
         getUserFocus(username).then(res => {
           console.log("getUserFocus", res)
           if (res.data.code === 200) {
+            this.$message.success("取消关注成功")
+            this.fans1.filter(value=>{
+              if(value.username!==username){
+                return value
+              }
+            })
           } else {
           }
         }).catch(err => {

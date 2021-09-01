@@ -22,9 +22,7 @@
             <li @click="MyFans" ref="MyFans">粉丝</li>
           </ul>
           <div class="main-box">
-<!--            <transition name="fade">-->
               <component :is="mainContent"></component>
-<!--            </transition>-->
           </div>
         </div>
       </el-main>
