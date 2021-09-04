@@ -10,6 +10,7 @@
       </transition>
    <!--    右边-->
       <el-main>
+        <el-scrollbar style="width: 100%;height: 100%">
         <div class="main-content" >
           <ul>
             <i class="el-icon-s-fold icon-size" v-if="isFold===0" @click="isFold=1"></i>
@@ -25,6 +26,7 @@
               <component :is="mainContent"></component>
           </div>
         </div>
+        </el-scrollbar>
       </el-main>
     </div>
   </div>
@@ -93,7 +95,7 @@
   }
   .user-page{
     width: var(--page-width);
-    height: var(--page--common);
+    height: var(--page-height-common);
     overflow: hidden;
     .header-bar2{
       position: fixed;
@@ -114,6 +116,8 @@
       .el-main{
         padding: 0 0 30px 0;
         margin: 0;
+        min-height: 100%;
+        /*overflow-y: hidden;*/
         background-color: var(--color-bac);
       }
       .main-content{
@@ -130,12 +134,14 @@
           .el-icon-s-fold{
             cursor: pointer;
             margin: auto;
+            /*margin: auto auto auto 30px;*/
             /*font-size: 40px;*/
             color: var(--color-common-icon);
           }
           .el-icon-s-unfold{
             cursor: pointer;
             margin: auto;
+            /*margin: auto auto auto 30px;*/
             /*font-size: 40px;*/
             color: var(--color-common-icon);
           }

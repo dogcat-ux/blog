@@ -9,16 +9,24 @@
           :value="item.name">
         </el-option>
       </el-select>
+      <el-button @click="deleteBlog" v-if="!isDeleting">批量删除</el-button>
+      <span v-else>
+        <el-button @click="toDeleteBlog">删除</el-button>
+        <el-button @click="deleteBlog">取消</el-button>
+      </span>
     </div>
     <div v-for="(item,index) in blog" class="one-note">
-      <OneBlog :avatarUrl="avatar" :blog-id="item.id" :username="item.username" :likes="item.likes">
-        <span slot="username">{{item.username}}</span>
-        <span slot="date">{{item.creatTime}}</span>
-        <div slot="=title">{{item.title}}</div>
-        <div slot="content" v-html="item.content">{{item.content}}</div>
-        <!--        <span slot="likes">{{item.likes}}</span>-->
-        <span slot="views">{{item.view}}</span>
-      </OneBlog>
+      <div class="one-note-box">
+        <el-checkbox v-model="item.checked" class="check-box" v-if="isDeleting"></el-checkbox>
+        <OneBlog class="blog-box" :avatarUrl="avatar" :blog-id="item.id" :username="item.username" :likes="item.likes">
+          <span slot="username">{{item.username}}</span>
+          <span slot="date">{{item.creatTime}}</span>
+          <div slot="=title">{{item.title}}</div>
+          <div slot="content" v-html="item.content">{{item.content}}</div>
+          <!--        <span slot="likes">{{item.likes}}</span>-->
+          <span slot="views">{{item.view}}</span>
+        </OneBlog>
+      </div>
     </div>
     <Empty :text="'暂无数据'" v-if="blog.length===0"></Empty>
   </div>
@@ -29,6 +37,7 @@
   import {getMyBlogs} from "../../api/user/BlogController/getMyBlogs";
   import OneBlog from "../common/OneBlog";
   import {allTags} from "../../api/user/BlogController/allTags";
+  import {deleteBlog} from "../../api/user/BlogController/deleteBlog";
 
   export default {
     name: "MyNote",
@@ -46,7 +55,10 @@
         blogSave: [],
         blog: [],
         defaultAvatar: this.$global.defaultAvatar,
-        avatar: this.$store.state.portraitPath
+        avatar: this.$store.state.portraitPath,
+        //删除
+        checked: ["false"],
+        isDeleting:false
       }
     },
     watch: {
@@ -65,15 +77,30 @@
         console.log("oldVal:", oldVal);
       }
     },
-    computed: {
-      changeValue: function (e) {
-        this.getValue(this.value)
-        return this.value
-      },
-    },
     methods: {
-      getValue: function (input) {
-        this.blog = this.blogSave.filter(data => !input || data.type.toLowerCase().includes(input.toLowerCase()))
+      toDeleteBlog(){
+        for(var i=0; i<this.blog.length; i++){
+          if(this.blog[i].checked){
+            deleteBlog(this.blog[i].id).then(res => {
+              console.log("deleteBlog",res)
+              if (res.status === 200) {
+                if (res.data.code === 200) {
+                  this.$message.success("删除成功")
+                  this.blog.splice(i,1)
+                  // this.tags.push.apply(this.tags, res.data.data);
+                } else {
+                }
+              } else {
+              }
+            }).catch(err => {
+              console.log(err)
+            });
+          }
+        }
+          this.isDeleting=!this.isDeleting
+      },
+      deleteBlog(){
+        this.isDeleting=!this.isDeleting
       },
       toAll() {
         this.blog = this.blogSave
@@ -101,8 +128,18 @@
       getMyBlogs(this.$store.state.username).then(res => {
         console.log("getMyBlogs", res)
         if (res.data.code === 200) {
-          this.blog = res.data.data.filter(item => item.draft === 0)
-          this.blogSave = res.data.data.filter(item => item.draft === 0)
+          this.blog = res.data.data.reverse().filter(item => {
+            item["checked"]=false
+            if(item.draft === 0){
+              return item
+            }
+          })
+          this.blogSave =  res.data.data.reverse().filter(item => {
+            item["checked"]=false
+            if(item.draft === 0){
+              return item
+            }
+          })
         }
       }).catch(err => {
       })
@@ -129,6 +166,24 @@
 
     .one-note {
       margin: 20px auto;
+      display: flex;
+      flex-direction: row;
+      justify-content:center;
+      .one-note-box{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+      }
+      .check-box{
+        /*margin: auto;*/
+        /*margin-left: 100px;*/
+      }
+      .blog-box{
+      }
+      .one-blog{
+        margin-left: 10px;
+      }
     }
   }
 </style>

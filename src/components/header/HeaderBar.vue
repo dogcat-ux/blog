@@ -58,6 +58,7 @@
     .header-bar {
       width: var(--header-width);
       height: var(--header-height);
+      /*background-color: rgba(255, 255, 255, 0.97);*/
       background-color: var(--color-main);
       position: relative;
       top: 0;

@@ -15,7 +15,7 @@
 <script>
 // <!--  传入点赞数likes和是否点赞了whetherLike-->
   export default {
-    name: "AddLikes",
+    ame: "AddLikes",
     methods:{
       toLike(){
         this.$emit("toLike")

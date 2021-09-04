@@ -1,11 +1,11 @@
 <template>
   <div class="one-blog">
     <div class="one-blog-header">
-      <div class="img-box" @click="toOtherUser">
-        <el-avatar :size="65" class="avatar" :src="avatarUrl"></el-avatar>
-      </div>
+<!--      <div class="img-box" @click="toOtherUser">-->
+<!--        <el-avatar :size="65" class="avatar" :src="avatarUrl"></el-avatar>-->
+<!--      </div>-->
       <div class="text-box">
-        <slot name="username"></slot>
+<!--        <slot name="username"></slot>-->
         <slot name="date"></slot>
       </div>
     </div>

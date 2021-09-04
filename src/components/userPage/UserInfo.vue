@@ -64,8 +64,8 @@
     <div class="amend-info">
       <span v-if="isBoxEdit===false">
         <el-button type="primary" size="small" class="buttons"  @click="isBoxEdit=true">修改资料</el-button>
-        <el-button type="primary" size="small" class="buttons">修改密码</el-button>
-        <el-button type="primary" size="small" >修改绑定手机</el-button>
+        <el-button type="primary" size="small" class="buttons" @click="toAmendPasswrd">修改密码</el-button>
+<!--        <el-button type="primary" size="small" >修改绑定手机</el-button>-->
       </span>
       <span v-else>
         <el-button type="primary" size="small" class="buttons"  @click="toSave">保存</el-button>
@@ -104,6 +104,11 @@
     components:{
     },
     methods:{
+      toAmendPasswrd(){
+        this.$router.push({
+          path:'/login',
+        })
+      },
       userEdit(){
         this.isBoxEdit = true;
       },
@@ -213,8 +218,9 @@
 
 <style lang="scss" scoped>
   $portrait-width:100px;
+  $user-info-width:300px;
   .user-info{
-    width: 100%;
+    width: $user-info-width;
     height: auto;
     min-height: var(--page-height);
     display: flex;
@@ -222,7 +228,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-main);
+    background-color: var(--color-bac);
     .info-photo{
       width: 100%;
       height: 150px;

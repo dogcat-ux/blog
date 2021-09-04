@@ -4,7 +4,7 @@
       <div class="my-attention-title">
         <span>
           <img src="../../assets/img/iconBlog/myAttention.png" class="icon-size" alt="">
-          我的关注</span>
+          猜你喜欢</span>
         <span>更多>></span>
       </div>
       <div class="my-attention-content">

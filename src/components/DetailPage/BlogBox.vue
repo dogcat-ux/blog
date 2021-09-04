@@ -9,7 +9,10 @@
           <div class="text-box">
           <span class="text-box-header">
             <span>{{oneBlog.username}}</span>
-            <span>分区：&nbsp;{{oneBlog.type}}</span>
+            <span>
+              <span class="edit" @click="toEdit" v-if="oneBlog.draft===1">继续编辑</span>
+              分区：&nbsp;{{oneBlog.type}}
+            </span>
           </span>
             <span>
             {{oneBlog.creatTime}}
@@ -22,15 +25,11 @@
           <div class="demo-image__preview">
             <el-image
             style="width: 300px; height: 300px"
-            :src="oneBlog.firstPicture"
-            :preview-src-list="[oneBlog.firstPicture]">
+            :src="oneBlog.firstPicture">
             </el-image>
           </div>
         </div>
-        <CommonFooter :blogId="blog_id" :likes="oneBlog.likes" @toReply="toReply">
-          <!--        <span slot="likes">{{oneBlog.likes}}</span>-->
-          <!--        <span slot="views">{{oneBlog.view}}</span>-->
-        </CommonFooter>
+        <CommonFooter :blogId="blog_id" :likes="oneBlog.likes" @toReply="toReply"></CommonFooter>
       </div>
     </el-card>
   </div>
@@ -75,6 +74,17 @@
       });
     },
     methods: {
+      toEdit(){
+        this.$router.push({
+          path: "/user/PublishNote", query: {
+            content: this.oneBlog.content,
+            blogTitle: this.oneBlog.title,
+            tags: this.oneBlog.type,
+            isDraft: true,
+            imageUrl: this.oneBlog.firstPicture,
+          }
+        })
+      },
       toOtherUser() {
         this.$router.push({
           path: "/user/InfoForOthers", query: {
@@ -157,6 +167,12 @@
           flex-direction: row;
           justify-content: space-between;
           padding-top: 20px;
+          .edit{
+            cursor: pointer;
+          }
+          .edit:hover{
+            color: var(--color-font);
+          }
           span:last-child{
             text-align: right;
             padding-right: 20px;

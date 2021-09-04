@@ -15,7 +15,7 @@
                 v-for="item in options"
                 :key="item.id"
                 :label="item.name"
-                :value="item.id">
+                :value="item.name">
               </el-option>
             </el-select>
           </el-col>
@@ -76,7 +76,7 @@
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
         <div class="message-submit">
-          <el-button type="primary" @click="submitBlog()">发布</el-button>
+          <el-button type="primary" @click="submitBlog">发布</el-button>
         </div>
       </div>
     </div>
@@ -100,18 +100,23 @@
     },
     data() {
       return {
-        content: "",
-        blogTitle: '',
+        // content: this.oneBlog.content,
+        // blogTitle: this.oneBlog.blogTitle,
+        // tags: this.oneBlog.type,
+        // isDraft: true,
+        // imageUrl: this.oneBlog.firstPicture,
+        content: this.$route.query.content,
+        blogTitle: this.$route.query.blogTitle,
         fileData:'',
         //分区标签
         options: [],
-        tags:"",
+        tags:this.$route.query.tags,
         //
-        isDraft: false,
+        isDraft: this.$route.query.isDraft,
         //上传
         dialogImageUrl: '',
         ossImgUrl: "",
-        imageUrl: "",
+        imageUrl: this.$route.query.imageUrl,
       }
     },
     methods: {
@@ -129,15 +134,8 @@
           } else {
             draft = 0
           }
-          uploadAvator(this.fileData.file).then(res1=>{
-            console.log("uploadAvator封面图",res1)
-            if(res1.data.code===200){
-              console.log("uploadAvator封面图",res1.data.data)
-              this.ossImgUrl=res1.data.data;
-            }else{
-              this.$message.error("可能出了点问题")
-            }
-            publishEditor(this.blogTitle, this.content, this.ossImgUrl, draft, this.$store.state.username, this.tags).then(res => {
+          if (this.$route.query.imageUrl){
+            publishEditor(this.blogTitle, this.content, this.imageUrl, draft, this.$store.state.username, this.tags).then(res => {
               console.log(res)
               if (res.status === 200) {
                 if (res.data.code === 200) {
@@ -152,7 +150,32 @@
             }).catch(err => {
               console.log(err)
             });
-          }).catch(err=>{})
+          }else{
+            uploadAvator(this.fileData.file).then(res1=>{
+              console.log("uploadAvator封面图",res1)
+              if(res1.data.code===200){
+                console.log("uploadAvator封面图",res1.data.data)
+                this.ossImgUrl=res1.data.data;
+              }else{
+                this.$message.error("可能出了点问题")
+              }
+              publishEditor(this.blogTitle, this.content, this.ossImgUrl, draft, this.$store.state.username, this.tags).then(res => {
+                console.log(res)
+                if (res.status === 200) {
+                  if (res.data.code === 200) {
+                    this.$message.success("发布成功")
+                    this.$router.push("/")
+                  } else {
+                    this.$message.error("发布失败")
+                  }
+                } else {
+                  this.$message.error("错误")
+                }
+              }).catch(err => {
+                console.log(err)
+              });
+            }).catch(err=>{})
+          }
         }
       },
       //限制大小

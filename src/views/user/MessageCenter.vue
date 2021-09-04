@@ -9,10 +9,12 @@
           <div class="message-center-title">
           </div>
           <ul>
-            <li @click="replyMe">回复我的</li>
-            <li>私聊</li>
-            <li @click="likeMe">收到的赞/收藏</li>
-            <li>新增关注</li>
+            <li @click="replyMe" v-if="isReplyMeActive" class="active">回复我的</li>
+            <li @click="replyMe" v-else>回复我的</li>
+            <!--            <li>私聊</li>-->
+            <li @click="likeMe" v-if="isLikeMeActive" class="active">收到的赞/收藏</li>
+            <li @click="likeMe" v-else>收到的赞/收藏</li>
+<!--            <li>新增关注</li>-->
           </ul>
         </el-scrollbar>
       </el-aside>
@@ -38,19 +40,25 @@
       HeaderBar,
       OneMessage,
       CommentMe,
-      LikeMe
+      LikeMe,
     },
     data(){
       return{
-        mainContent:"CommentMe"
+        mainContent:"CommentMe",
+        isReplyMeActive:true,
+        isLikeMeActive:false
       }
     },
     methods:{
       replyMe(){
-        this.mainContent="CommentMe"
+        this.mainContent="CommentMe";
+        this.isReplyMeActive=true
+        this.isLikeMeActive=false
       },
       likeMe(){
         this.mainContent="LikeMe"
+        this.isLikeMeActive=true
+        this.isReplyMeActive=false
       }
     }
   }
@@ -74,6 +82,7 @@
       position: fixed;
       padding: 56px 0 0 0;
       height: 100vh;
+      color: #ffffff;
       background-color: var(--color-main);
       ul{
         width: 100%;
@@ -87,6 +96,10 @@
         li:hover{
           color: var(--color-font-active);
         }
+        .active{
+          color: var(--color-font-active);
+        }
+
       }
     }
     .el-container{
@@ -95,6 +108,7 @@
       height: auto;
       width: 100%;
       background-color: var(--color-main);
+      /*background-color: var(--color-bac);*/
     }
     .el-main{
       overflow: hidden;

@@ -51,10 +51,10 @@
 
   .show2 {
     text-align: center;
-    margin: 32px auto;
+    margin: 20px auto;
 
     .show2-name {
-      margin: 50px auto;
+      margin: 20px auto;
       font-family: DingYongKang;
       font-size: 20px;
       /*background-color: #FD9A16;*/

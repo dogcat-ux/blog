@@ -15,7 +15,7 @@
       <el-dropdown @command="handleCommand">
         <span class="el-dropdown-link">
           <el-badge :is-dot="true" class="item" v-if="notReadNum!==0||likeNotReadNum!==0">消息</el-badge>
-          <span class="item" v-else>消息</span>
+          <span v-else>消息</span>
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="c">
@@ -159,6 +159,9 @@
 
   .el-dropdown-link {
     cursor: pointer;
+    color: var(--color-font2);
+  }
+  .el-dropdown-link:hover{
     color: var(--color-font-active);
   }
 

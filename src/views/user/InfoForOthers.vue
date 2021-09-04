@@ -6,28 +6,28 @@
         <el-avatar :src="this.portraitPath" :size="100"></el-avatar>
       </div>
       <el-menu
-        :default-active="1"
+        :default-active="'1'"
         @select="handleSelect"
         class="el-menu-vertical-demo">
-        <el-menu-item index="3" @click="toLove">
+        <el-menu-item index="3" @click="toLove" v-if="nowUser!==routeUser">
           <i class="el-icon-headset"></i>
           <span slot="title" v-if="!isLove">关注ta</span>
           <span slot="title" v-else>取消关注</span>
         </el-menu-item>
         <el-menu-item index="1" @click="toUserInfo">
-          <i class="el-icon-document"></i>
+          <i class="el-icon-user"></i>
           <span slot="title">个人信息</span>
         </el-menu-item>
         <el-menu-item index="2" @click="toUserNote">
-          <i class="el-icon-sell"></i>
+          <i class="el-icon-document"></i>
           <span slot="title">ta发布的笔记</span>
         </el-menu-item>
         <el-menu-item index="4">
-          <i class="el-icon-sell"></i>
+          <i class="el-icon-magic-stick"></i>
           <span slot="title">ta的粉丝</span>
         </el-menu-item>
         <el-menu-item index="5">
-          <i class="el-icon-sell"></i>
+          <i class="el-icon-office-building"></i>
           <span slot="title">ta的关注</span>
         </el-menu-item>
       </el-menu>
@@ -71,6 +71,8 @@
         user: [],
         isLove: false,
         activeIndex: '1',
+        nowUser:this.$store.state.username,
+        routeUser:this.$route.query.username
       };
     },
     methods: {

@@ -69,7 +69,6 @@
     name: "Empty",
     data(){
       return{
-        text:"暂无数据"
       }
     },
     props:{

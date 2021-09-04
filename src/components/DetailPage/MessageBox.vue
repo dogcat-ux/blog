@@ -15,10 +15,10 @@
         <el-button type="primary" size="small" @click="emitMessage">发表留言</el-button>
       </div>
     </div>
-    <div class="min-message" v-for="(item,index) in messages">
-      <div class="img-box">
-        <el-avatar :size="50" :src="item.userPicture" @click="toMessager(item,index)" class="avatar"></el-avatar>
-        <img :src="item.pictureUrl" alt="">
+    <div class="min-message" v-for="(item,index) in messages" v-if="messages.length!==0">
+      <div class="img-box"  @click="toMessager(item,index)">
+        <el-avatar :size="50" :src="item.userPicture" class="avatar"></el-avatar>
+<!--        <img :src="item.pictureUrl" alt="">-->
       </div>
       <div class="name-date">
         <span class="messager">{{item.valuerName}}</span>
@@ -108,7 +108,7 @@
         this.$router.push({
           path: '/user/InfoForOthers',
           query: {
-            username: item.username
+            username: item.valuerName
           }
         })
       }

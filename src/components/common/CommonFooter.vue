@@ -75,8 +75,10 @@
               this.isCollect=!this.isCollect
               if(this.isCollect){
                 this.collects++
+                this.$message.success("收藏成功")
               }else{
                 this.collects--
+                this.$message.success("取消收藏成功")
               }
               this.$emit("addCancelCollect",this.isCollect)
             }else {

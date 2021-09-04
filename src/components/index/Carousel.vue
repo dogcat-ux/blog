@@ -1,10 +1,7 @@
 <template>
   <el-carousel height="600px">
     <el-carousel-item>
-      <img src="../../assets/img/home3.png" alt="">
-    </el-carousel-item>
-    <el-carousel-item>
-      <img src="../../assets/img/home3.png" alt="">
+      <img src="../../assets/img/home.png" alt="">
     </el-carousel-item>
   </el-carousel>
 </template>

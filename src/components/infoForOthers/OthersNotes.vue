@@ -1,8 +1,8 @@
 <template>
   <div class="my-note">
     <div v-for="(item,index) in blog" class="my-note-min">
-      <OneMinBlog :likes="item.likes">
-        <span slot="username">{{item.username}}</span>
+      <OneMinBlog :likes="item.likes" :blogId="item.id">
+<!--        <span slot="username">{{item.username}}</span>-->
         <span slot="date">{{item.creatTime}}</span>
         <h3 slot="=title">{{item.title}}</h3>
         <div slot="content" v-html="item.content">{{item.content}}</div>

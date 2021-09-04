@@ -30,44 +30,33 @@
   --font-login: 20px;
   --font-20: 20px;
   --font-18: 18px;
-
-  /*background-color: #FD9A16;*/
-  /*background-color: #2966C1;*/
-
-/*  !*#2A5B68*!#644A53*/
-/*#7C5D6E*/
-/*#94708C*/
-/*#AC83AC*/
-/*#BB97C4*/
-/*#BDA4CD*/
-/*#C1B2D5*/
-/*#C6BFDD*/
-/*#CECDE5*/
-/*#DBDDED*/
-/*#E9EDF4*!*/
   /*  颜色*/
-  --color-img: linear-gradient(to right, #b5dbde, #f4f7f7);;
-  --color-main: #aacfd0;
-  --color-bac: #f4f7f7;
+  /*--color-img: linear-gradient(to right, #E4D8DC, #FFE3E3);;*/
+  --color-main: #97D4E0;
+  --color-main2: rgba(151, 212, 224, 0.48);
+  --color-bac: rgba(151, 212, 224, 0.06);
+  /*--color-bac: #d7eaf1;*/
   --color-bac3: #ffffff;
   --color-bac4: #ffffff;
   /*--color-bac2: rgba(147, 227, 223, 0.68);*/
   --color-bac2: rgba(255, 255, 255, 0.66);
   /*icon*/
-  --color-icon: skyblue;
+  --color-icon: #97D4E0;
   /*--color-common-icon: #8a8a8a;*/
   --color-common-icon: #bfbdbd;
-  --color-common-icon-active: skyblue;
+  --color-common-icon-active: #155B7F;
   --font-icon:25px;
   /*  字体颜色*/
-  --color-font: #ABD1FE;
-  --color-font-active: #659bdb;
-  --color-font2: #353866;
+  --color-font: #97D4E0;
+  --color-font-active: #155B7F;
+  /*导航条字体颜色*/
+  --color-font2: #ffffff;
+  /*--color-font2: #7b7b7b;*/
   --color-font-main: #565656;
   --color-title: #2a2929;
   /*文字链接*/
   --color-font-link: #545454;
-  --color-font-link-active: #abd1fe;
+  --color-font-link-active: #97D4E0;
 /*  */
   --view-width: 1000px;
   --frame-item: 280px;

@@ -44,7 +44,7 @@
 
 <style lang="scss" scoped>
   $tab-height: 30px;
-  $tab-blank: 100px;
+  $tab-blank: 80px;
   .home-tabs{
     width: var(--width-tab);
     margin: $tab-blank auto $tab-blank auto;
